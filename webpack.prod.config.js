@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const uglifyjs = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-    entry: "./static/index.jsx",
+    entry: "./index.jsx",
     output: {
         filename: "./bundle.js",
         path: __dirname + "/dist",
@@ -19,6 +19,9 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['env', 'react'],
+                    plugins: [
+                        ["transform-class-properties", { "spec": true }]
+                    ]
                 }
             },
             {

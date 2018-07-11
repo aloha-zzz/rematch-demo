@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, HashRouter} from 'react-router-dom';
+import Router from './component/router'
 
-import Main from './component/test'
-
-ReactDOM.render(<Main />, 
+ReactDOM.render(
+    <HashRouter>
+        <Router />
+    </HashRouter>
+    , 
     document.getElementById('main'))

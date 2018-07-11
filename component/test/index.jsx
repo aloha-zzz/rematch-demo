@@ -1,14 +1,29 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 
-export default class Test extends React.Component {
+class Test extends React.Component {
     state = {
-
+        num: 0
     }
-    // add = () => {
+    add = () => {
+        this.setState({
+            num: ++this.state.num
+        })
+    }
+    link = () => {
+        this.props.history.push("/Hoc")
+    }
 
-    // }
+    render() {
 
-    render(){
-        return <div>hello</div>
+        const { num } = this.state;
+        return (
+            <div>
+                <button onClick={this.add}>num is {num}</button>
+                <button onClick={this.link}>link</button>
+            </div>
+        )
     }
 }
+
+export default withRouter(Test)
