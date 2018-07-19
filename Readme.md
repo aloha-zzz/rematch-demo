@@ -1,7 +1,8 @@
 React Cli
 ---
-- axios 
-- React React-Router4  
+- wrapped axios 
+- React 
+- React-Router4  
 - webpack
 - eslint
 
