@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
+require('./../../css/index.css')
 
 class Test extends React.Component {
     state = {
@@ -19,7 +20,7 @@ class Test extends React.Component {
         const { num } = this.state;
         return (
             <div>
-                <button onClick={this.add}>num is {num}</button>
+                <button class='word' onClick={this.add}>num is {num}</button>
                 <button onClick={this.link}>link</button>
             </div>
         )

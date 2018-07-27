@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = {
+    mode: 'development',
     entry: "./index.jsx",
     output: {
         filename: "./bundle.js",
@@ -17,11 +18,11 @@ module.exports = {
         extensions: [".jsx", ".js"]
     },
     module: {
-        loaders: [{
+        rules: [{
                 test: /\.jsx|.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: {
+                options: {
                     presets: ['env', 'react'],
                     plugins: [
                         ["transform-class-properties", { "spec": true }]
@@ -30,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                loader: ['style-loader', 'css-loader']
             },
         ]
     },

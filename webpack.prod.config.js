@@ -1,10 +1,9 @@
-const webpack = require('webpack')
-const uglifyjs = require('uglifyjs-webpack-plugin')
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin') 
 module.exports = {
+    mode: "production",
     entry: "./index.jsx",
     output: {
-        filename: "./bundle.js",
+        filename: "./[name]-[hash]-bundle.js",
         path: __dirname + "/dist",
         publicPath: "/dist"
     },
@@ -13,27 +12,23 @@ module.exports = {
         extensions: [".jsx", ".js"]
     },
     module: {
-        loaders: [{
-                test: /\.jsx|\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['env', 'react'],
-                    plugins: [
-                        ["transform-class-properties", { "spec": true }]
-                    ]
-                }
-            },
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
-            },
-        ]
+        rules: [{
+            test: /\.jsx|.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            options: {
+                presets: ['env', 'react'],
+                plugins: [
+                    ["transform-class-properties", { "spec": true }]
+                ]
+            }
+        },
+        {
+            test: /\.css$/,
+            loader: ['style-loader', 'css-loader']
+        }]
     },
     plugins: [
-        new webpack.DefinePlugin({  
-            'process.env.NODE_ENV': JSON.stringify('production')  
-        }),
-        new uglifyjs(),
+        new ExtractTextPlugin('[name].css')
     ]
 }
