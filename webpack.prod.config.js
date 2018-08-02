@@ -1,4 +1,4 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin') 
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     mode: "production",
     entry: "./index.jsx",
@@ -20,6 +20,7 @@ module.exports = {
                 presets: ['env', 'react'],
                 plugins: [
                     ["transform-class-properties", { "spec": true }]
+                    , ["transform-decorators-legacy"]
                 ]
             }
         },
