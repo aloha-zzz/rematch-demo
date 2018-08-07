@@ -16,11 +16,11 @@ class Test extends React.Component {
     }
 
     render() {
-
+        console.log(1)
         const { num } = this.state;
         return (
             <div>
-                <button class='word' onClick={this.add}>num is {num}</button>
+                <button className='word' onClick={this.add}>num is {num}</button>
                 <button onClick={this.link}>link</button>
             </div>
         )
