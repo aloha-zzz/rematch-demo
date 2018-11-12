@@ -25,7 +25,8 @@ module.exports = {
                 options: {
                     presets: ['env', 'react'],
                     plugins: [
-                        ["transform-class-properties", { "spec": true }]
+                        ["transform-class-properties", { "spec": true }],
+                        ["transform-runtime"]
                     ]
                 }
             },
